@@ -19,15 +19,19 @@ public class CepAPI {
     private Cep cepObj;
 
     public void connect(String cep) throws IOException, InterruptedException {
-        String url = "https://viacep.com.br/ws/" + cep + "/json/";
-        String finalUrl = url.replace("-", "");
+        try {
+            String url = "https://viacep.com.br/ws/" + cep + "/json/";
+            String finalUrl = url.replace("-", "");
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(finalUrl))
-                .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        setCep(response.body());
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(finalUrl))
+                    .build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            setCep(response.body());
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // a classe que recebe uma String cep e trasnforma isso em uma instância de objeto Cep
