@@ -52,7 +52,7 @@ public class CepAPI {
 
             JOptionPane.showMessageDialog(
                     null,
-                    "Arquivo .json escrito com sucesso");
+                    "Arquivo .json escrito com sucesso: " + getCepSerialized());
             return true;
         } catch (IOException e){
             e.printStackTrace();
@@ -74,7 +74,6 @@ public class CepAPI {
         System.out.println("---------------***---------------");
 
         setCepInput(cepInput);
-        System.out.println(getCepSerialized());
     }
 
     public String getCep() {
