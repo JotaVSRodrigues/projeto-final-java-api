@@ -11,7 +11,7 @@ public record Cep(
         String localidade, // "São Paulo - cidade"
         String bairro, // "Sé"
         String regiao, // "sudeste"
-        String ddd, // "11"
-        String ibge // "3550308"
+        Integer ddd, // "11"
+        Integer ibge // "3550308"
 ) {
 }

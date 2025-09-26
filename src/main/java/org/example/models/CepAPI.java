@@ -19,6 +19,11 @@ public class CepAPI {
     private Cep cepObj;
 
     public void connect(String cep) throws IOException, InterruptedException {
+        if (cep.isEmpty() || cep.isBlank()) {
+            throw new IOException(
+                    "Campo de CEP vazio, não foi possível buscar"
+            );
+        }
         try {
             String url = "https://viacep.com.br/ws/" + cep + "/json/";
             String finalUrl = url.replace("-", "");
@@ -73,7 +78,8 @@ public class CepAPI {
         System.out.println("---------------------------------");
         System.out.println("---------------***---------------");
         System.out.println("Insira o seu CEP: ");
-        String cepInput = scanner.nextLine();
+        var cepInput = scanner.nextLine();
+
         System.out.println("---------------------------------");
         System.out.println("---------------***---------------");
 

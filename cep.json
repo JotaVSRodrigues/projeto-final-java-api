@@ -1,10 +1,10 @@
 {
-  "cep": "08390-311",
-  "logradouro": "Travessa Manuel Puig",
+  "cep": "09210-000",
+  "logradouro": "Rua Suíça",
   "estado": "São Paulo",
-  "localidade": "São Paulo",
-  "bairro": "Jardim São Francisco",
+  "localidade": "Santo André",
+  "bairro": "Parque das Nações",
   "regiao": "Sudeste",
-  "ddd": "11",
-  "ibge": "3550308"
+  "ddd": 11,
+  "ibge": 3547809
 }
