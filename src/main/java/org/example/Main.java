@@ -2,6 +2,8 @@ package org.example;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import org.example.models.Cep;
 import org.example.models.CepAPI;
 
@@ -16,28 +18,16 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         CepAPI cepAPI = new CepAPI();
-        cepAPI.connect("09210-000");
+        cepAPI.scanner();
+        cepAPI.connect(cepAPI.getCepInput());
         String mensagem = cepAPI.getCep();
 
-//        cepAPI.serializador(mensagem);
-        // nesse ponto, a String cep é transformada em um objeto Cep
-        // e isso gera o → cepAPI.getCepSerialized() é uma instância da classe Cep (record original)
+        // -----------------------------------------------------------------------------------------
+        // cria um objeto do tipo Cep (direto no Record)
 
+        cepAPI.serializador(mensagem);
+        cepAPI.writer(cepAPI.getCepSerialized());
 
-
-
-//        ------------------------------------------------------------------------------------------
-//        Cep cep = cepAPI.getCepSerialized();
-//        cepAPI.writer(cep.toString());
-
-
-        /*
-        if (cep.writer(mostradorCEP)) {
-            JOptionPane.showMessageDialog(null, "Arquivo .json escrito com sucesso");
-        } else {
-            throw new Exception("não foi possível escrever o arquivo .json");
-        }
-        */
-
+        // -----------------------------------------------------------------------------------------
     }
 }
